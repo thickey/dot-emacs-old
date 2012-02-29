@@ -16,21 +16,23 @@
 
 (require 'color-theme)
 
+(defvar thickey-bg "#171717")
+
 ;;;###autoload
 (defun color-theme-blackbored ()
   "Color theme by Sam Aaron, based off BlackBoard by JD Huntington based off the TextMate Blackboard theme, created 2008-11-27"
   (interactive)
   (color-theme-install
    '(color-theme-blackbored
-     ((background-color . "black")
+     ((background-color . "#171717") ;; "black"
       (background-mode . dark)
-      (border-color . "black")
+      (border-color . "#171717") ;; "black"
       (cursor-color . "#96CBFE")
       (foreground-color . "#EDEDED")
       (mouse-color . "sienna1"))
 
-     (hl-line ((t (:background "#333333"))))
-     (default ((t (:background "black" :foreground "#A9A9A9"))))
+     (hl-line ((t (:background "#232323")))) ;;"#333333"
+     (default ((t (:background "#171717" :foreground "#A9A9A9")))) ;; "black"
      (blue ((t (:foreground "blue"))))
      (bold ((t (:bold t))))
      (bold-italic ((t (:bold t))))
@@ -58,7 +60,7 @@
      (gui-element ((t (:background "#333333" :foreground "#96CBFE"))))
      (region ((t (:background "#7F073F"))))
 
-     (mode-line ((t (:background "gray10" :foreground "#4c83ff"))))
+     (mode-line ((t (:background "#232323" :foreground "#4c83ff")))) ;; "gray10"
      (mode-line-inactive ((t (:background "gray10" :foreground "gray30"))))
 
      (highlight ((t (:background "DarkOrange"))))
@@ -126,4 +128,6 @@
 ; '(ediff-fine-diff-B ((((class color)) (:background "cyan"))))
 ; '(ediff-odd-diff-A ((((class color)) nil)))
 ; '(ediff-odd-diff-B ((((class color)) nil)))
+ `(org-hide ((t (:foreground ,thickey-bg))))
+
  )

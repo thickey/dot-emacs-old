@@ -9,7 +9,7 @@
 
 ;;highlight current line
 (global-hl-line-mode 1)
-(set-face-background 'hl-line "#333333")
+;;(set-face-background 'hl-line "#333333")
 
 ;;set cursor colour
 (set-cursor-color "yellow")
@@ -20,4 +20,4 @@
 ;get rid of clutter
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+;;(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
