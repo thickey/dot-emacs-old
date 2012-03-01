@@ -108,6 +108,14 @@
      (naeu-red-face ((t (:foreground "orange" :background "black"))))
      (naeu-grey-face ((t (:foreground "gray30" :background "black"))))
 
+     (markdown-header-face ((t (:foreground "deep pink" :background "black"))))
+     (markdown-header-face-1 ((t (:foreground "deep pink" :background "black"))))
+     (markdown-header-face-2 ((t (:foreground "medium slate blue" :background "black"))))
+     (markdown-header-face-3 ((t (:foreground "orange" :background "black"))))
+     (markdown-header-face-4 ((t (:foreground "gold" :background "black"))))
+     (markdown-header-face-5 ((t (:foreground "green" :background "black"))))
+     (markdown-header-face-6 ((t (:foreground "#4c83ff" :background "black")))) ;; light blue
+     (markdown-reference-face ((t (:foreground "darkgray" :background "black"))))
      )))
 
 (custom-set-faces

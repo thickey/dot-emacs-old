@@ -59,14 +59,20 @@
 (require 'linum-off)
 
 ;;;
-;;; clojure-mode 
+;;; clojure-mode
 ;;;
 (defun clojure-mode-setup ()
   (slime-mode t)
   (show-paren-mode t)
   (rainbow-delimiters-mode t)
   (paredit-mode t)
-  (linum-mode t))
+  (linum-mode t)
+  (progn
+      (define-key clojure-mode-map "\C-cc" 'comment-region)
+      (define-key clojure-mode-map "\C-cu" 'uncomment-region)
+;      (setq cdt-dir (expand-file-name "~/.emacs.d/site-lisp/cdt"))
+;      (load-file (format "%s/ide/emacs/cdt.el" cdt-dir))
+))
 
 (autoload 'clojure-mode "clojure-mode" nil t)
 
@@ -82,7 +88,10 @@
   (show-paren-mode t)
   (rainbow-delimiters-mode t)
   (paredit-mode t)
-  (linum-mode t))
+  (linum-mode t)
+  (progn
+      (define-key clojure-mode-map "\C-cc" 'comment-region)
+      (define-key clojure-mode-map "\C-cu" 'uncomment-region)))
 ;; (require 'clojurescript-mode)
 ;; (autoload 'clojurescript-mode "clojurescript-mode" nil t)
 
@@ -237,3 +246,5 @@
 (add-hook 'js2-mode-hook 'my-js2-mode-hook)
 
 
+(autoload 'markdown-mode "markdown-mode.el" "Major mode for editing Markdown files" t)
+(setq auto-mode-alist (cons '("\\.md" . markdown-mode) auto-mode-alist))
