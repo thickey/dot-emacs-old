@@ -20,6 +20,8 @@
 (defun load-dotfile (f)
   (load-file (concat dotfiles-dir f)))
 
+(defun load-dotfile-lib (f)
+  (load-file (concat dotfiles-lib-dir f)))
 
 ;; Ensure the lib directory is on the load path
 (add-dotfile-path "lib")
@@ -31,4 +33,3 @@
 
 ;; Pull in personalised config
 (load-dotfile "config/core.el")
-

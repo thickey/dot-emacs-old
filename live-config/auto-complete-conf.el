@@ -25,7 +25,7 @@
 (dolist (mode '(magit-log-edit-mode log-edit-mode org-mode text-mode haml-mode
                 sass-mode yaml-mode csv-mode espresso-mode haskell-mode
                 html-mode nxml-mode sh-mode smarty-mode clojure-mode
-                lisp-mode textile-mode markdown-mode tuareg-mode))
+                lisp-mode textile-mode markdown-mode tuareg-mode nrepl-mode))
   (add-to-list 'ac-modes mode))
 
 
@@ -33,6 +33,7 @@
 (add-live-lib-path "ac-slime")
 (require 'ac-slime)
 (add-hook 'slime-mode-hook 'set-up-slime-ac)
+;; (add-hook 'nrepl-mode-hook 'set-up-slime-ac)
 (add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
 
 
@@ -42,4 +43,3 @@
 (define-key ac-completing-map (kbd "C-M-p") 'ac-previous)
 (define-key ac-completing-map "\t" 'ac-complete)
 (define-key ac-completing-map "\r" nil)
-

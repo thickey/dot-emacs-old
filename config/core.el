@@ -3,11 +3,13 @@
 ;; such as this colour theme (feel free to change it to your own favourite theme)
 
 ;; use blackbored colour theme
-(load-file (concat dotfiles-lib-dir "blackbored.el"))
+(load-dotfile-lib "blackbored.el")
 (color-theme-blackbored)
 
 ;;Or load external files such as this bindings file:
 (load-dotfile "config/bindings.el")
+(load-dotfile-lib "nrepl.el")
+
 
 (setq visible-bell f)
 (setq ring-bell-function 'ignore)
@@ -102,6 +104,14 @@
 )
 (add-hook 'slime-repl-mode-hook #'slime-mode-setup)
 
+(defun nrepl-mode-setup ()
+  ;; (nrepl-mode t)
+  (show-paren-mode t)
+  (paredit-mode t)
+  ;; (clojure-mode t)
+)
+(add-hook 'nrepl-mode-hook #'nrepl-mode-setup)
+
 (defun start-clojurescript ()
   (interactive)
   ;;(setq inferior-lisp-program "/Users/ffailla/dev/clojurescript/script/cljsrepl")
@@ -111,7 +121,7 @@
 ;; (add-to-list 'auto-mode-alist '("\\.cljs\\'" . clojurescript-mode))
 
 
-;; 
+;;
 ;; fonts
 ;;
 (custom-set-faces
@@ -248,3 +258,21 @@
 
 (autoload 'markdown-mode "markdown-mode.el" "Major mode for editing Markdown files" t)
 (setq auto-mode-alist (cons '("\\.md" . markdown-mode) auto-mode-alist))
+
+(defun maximize-frame ()
+  (interactive)
+  (set-frame-position (selected-frame) 0 0)
+  (set-frame-size (selected-frame) 1000 1000))
+(maximize-frame)
+
+
+;;ac-nrepl auto-complete plugin
+(load-dotfile-lib "ac-nrepl.el")
+(require 'ac-slime)
+(add-hook 'nrepl-mode-hook 'set-up-slime-ac)
+;; (add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
+;;     (require 'ac-nrepl)
+;;     (add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
+(add-hook 'clojure-nrepl-mode-hook 'ac-nrepl-setup)
+;;     (eval-after-load "auto-complete"
+;;       '(add-to-list 'ac-modes 'nrepl-mode))
