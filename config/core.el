@@ -276,3 +276,4 @@
 (add-hook 'clojure-nrepl-mode-hook 'ac-nrepl-setup)
 ;;     (eval-after-load "auto-complete"
 ;;       '(add-to-list 'ac-modes 'nrepl-mode))
+(setq split-height-threshold nil)
